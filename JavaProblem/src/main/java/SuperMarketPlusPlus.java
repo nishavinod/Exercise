@@ -36,12 +36,6 @@ public class SuperMarketPlusPlus {
                 {
                     if (!"Sulfuras".equals(items.get(i).getName()))
                     {
-                    	if("Organic Bananas".equals(items.get(i).getName()))
-                    	{
-                    		int quality = items.get(i).getQuality() - 2 > 0? items.get(i).getQuality() - 2 : 0;
-                    		items.get(i).setQuality(quality);
-                    	}
-                    	else
                     		items.get(i).setQuality(items.get(i).getQuality() - 1);
                     }
                 }
@@ -88,9 +82,13 @@ public class SuperMarketPlusPlus {
                         {
                             if (!"Sulfuras".equals(items.get(i).getName()))
                             {
+                            	//Organic Bananas degrades twice as fast as normal items
+                            	//if it is wrong below then here it should be -4 instead of -2
                             	if("Organic Bananas".equals(items.get(i).getName()))
                             		items.get(i).setQuality(items.get(i).getQuality() - 2);
                             	else
+                            		//Looks like it is wrong here it should be -2 here according to 
+                            		// this requirement Once the sell by date has passed, Quality degrades twice as fast (i.e. the int is decremented by 2 instead of 1)
                             		items.get(i).setQuality(items.get(i).getQuality() - 1);
                             }
                         }
