@@ -75,13 +75,7 @@ public class SuperMarketPlusPlus {
 
             if (!"Sulfuras".equals(items.get(i).getName()))
             {
-            	if("Organic Bananas".equals(items.get(i).getName()))
-            	{
-            		
-            		items.get(i).setSellIn(items.get(i).getSellIn() - 2);
-            	}
-            	else
-            		items.get(i).setSellIn(items.get(i).getSellIn() - 1);
+            	items.get(i).setSellIn(items.get(i).getSellIn() - 1);
             }
 
             if (items.get(i).getSellIn() < 0)

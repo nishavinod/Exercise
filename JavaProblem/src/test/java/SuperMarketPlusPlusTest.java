@@ -54,7 +54,7 @@ public class SuperMarketPlusPlusTest {
 	@Test
 	public void test_TheTruth_after_Organic_Bananas_added() {
 		SuperMarketPlusPlus.items.add(new Item("Organic Bananas", 4, 6));
-		expectedItemValuesAfterUpdate.add(new Item("Organic Bananas", 2, 4));
+		expectedItemValuesAfterUpdate.add(new Item("Organic Bananas", 3, 4));
 		SuperMarketPlusPlus.updateQuality();
 		int i = 0;
 		for (Item item : SuperMarketPlusPlus.items) {
@@ -69,7 +69,7 @@ public class SuperMarketPlusPlusTest {
 	@Test
 	public void test_TheTruth_after_Organic_Bananas_added_with_sellin_passed() {
 		SuperMarketPlusPlus.items.add(new Item("Organic Bananas", -1, 4));
-		expectedItemValuesAfterUpdate.add(new Item("Organic Bananas", -3, 0));
+		expectedItemValuesAfterUpdate.add(new Item("Organic Bananas", -2, 0));
 		SuperMarketPlusPlus.updateQuality();
 		int i = 0;
 		for (Item item : SuperMarketPlusPlus.items) {
