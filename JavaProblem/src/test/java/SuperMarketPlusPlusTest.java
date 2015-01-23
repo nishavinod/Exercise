@@ -43,6 +43,36 @@ public class SuperMarketPlusPlusTest {
 		SuperMarketPlusPlus.updateQuality();
 		int i = 0;
 		for (Item item : SuperMarketPlusPlus.items) {
+			assertEquals(expectedItemValuesAfterUpdate.get(i).getQuality(),
+					item.getQuality());
+			assertEquals(expectedItemValuesAfterUpdate.get(i++).getSellIn(),
+					item.getSellIn());
+
+		}
+	}
+	
+	@Test
+	public void test_TheTruth_after_Organic_Bananas_added() {
+		SuperMarketPlusPlus.items.add(new Item("Organic Bananas", 4, 6));
+		expectedItemValuesAfterUpdate.add(new Item("Organic Bananas", 2, 4));
+		SuperMarketPlusPlus.updateQuality();
+		int i = 0;
+		for (Item item : SuperMarketPlusPlus.items) {
+			assertEquals(expectedItemValuesAfterUpdate.get(i).getQuality(),
+					item.getQuality());
+			assertEquals(expectedItemValuesAfterUpdate.get(i++).getSellIn(),
+					item.getSellIn());
+
+		}
+	}
+
+	@Test
+	public void test_TheTruth_after_Organic_Bananas_added_with_sellin_passed() {
+		SuperMarketPlusPlus.items.add(new Item("Organic Bananas", -1, 4));
+		expectedItemValuesAfterUpdate.add(new Item("Organic Bananas", -3, 0));
+		SuperMarketPlusPlus.updateQuality();
+		int i = 0;
+		for (Item item : SuperMarketPlusPlus.items) {
 			System.out.println(item.getName());
 			System.out.println(expectedItemValuesAfterUpdate.get(i).getName());
 			assertEquals(expectedItemValuesAfterUpdate.get(i).getQuality(),

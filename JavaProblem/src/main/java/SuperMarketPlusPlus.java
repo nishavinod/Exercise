@@ -36,7 +36,13 @@ public class SuperMarketPlusPlus {
                 {
                     if (!"Sulfuras".equals(items.get(i).getName()))
                     {
-                        items.get(i).setQuality(items.get(i).getQuality() - 1);
+                    	if("Organic Bananas".equals(items.get(i).getName()))
+                    	{
+                    		int quality = items.get(i).getQuality() - 2 > 0? items.get(i).getQuality() - 2 : 0;
+                    		items.get(i).setQuality(quality);
+                    	}
+                    	else
+                    		items.get(i).setQuality(items.get(i).getQuality() - 1);
                     }
                 }
             }
@@ -69,7 +75,13 @@ public class SuperMarketPlusPlus {
 
             if (!"Sulfuras".equals(items.get(i).getName()))
             {
-                items.get(i).setSellIn(items.get(i).getSellIn() - 1);
+            	if("Organic Bananas".equals(items.get(i).getName()))
+            	{
+            		
+            		items.get(i).setSellIn(items.get(i).getSellIn() - 2);
+            	}
+            	else
+            		items.get(i).setSellIn(items.get(i).getSellIn() - 1);
             }
 
             if (items.get(i).getSellIn() < 0)
@@ -82,7 +94,10 @@ public class SuperMarketPlusPlus {
                         {
                             if (!"Sulfuras".equals(items.get(i).getName()))
                             {
-                                items.get(i).setQuality(items.get(i).getQuality() - 1);
+                            	if("Organic Bananas".equals(items.get(i).getName()))
+                            		items.get(i).setQuality(items.get(i).getQuality() - 2);
+                            	else
+                            		items.get(i).setQuality(items.get(i).getQuality() - 1);
                             }
                         }
                     }
